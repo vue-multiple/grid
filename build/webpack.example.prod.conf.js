@@ -15,6 +15,13 @@ module.exports = merge(baseWebpackConfig, {
           use: "css-loader",
           fallback: "style-loader"
         })
+      },
+      {
+        test: /\.less/,
+        loader: ExtractTextPlugin.extract({
+          fallback: "vue-style-loader",
+          use: ["css-loader", "less-loader"]
+        })
       }
     ]
   },

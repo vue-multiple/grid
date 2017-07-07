@@ -22,7 +22,11 @@ module.exports = {
             css: isProduction ? ExtractTextPlugin.extract({
               use: 'css-loader',
               fallback: 'vue-style-loader'
-            }) : 'vue-style-loader!css-loader'
+            }) : 'vue-style-loader!css-loader',
+            less: isProduction ? ExtractTextPlugin.extract({
+              fallback: 'vue-style-loader',
+              use: ['css-loader', 'less-loader']
+            }) : 'vue-style-loader!css-loader!less-loader'
           }
         }
       },

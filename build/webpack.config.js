@@ -28,6 +28,10 @@ module.exports = {
             css: ExtractTextPlugin.extract({
               use: 'css-loader',
               fallback: 'vue-style-loader'
+            }),
+            less: ExtractTextPlugin.extract({
+              fallback: 'vue-style-loader',
+              use: ['css-loader', 'less-loader']
             })
           }
           // other vue-loader options go here
@@ -41,6 +45,13 @@ module.exports = {
         })
       },
       {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader']
+        })
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
@@ -50,6 +61,14 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: path.posix.join('static', 'fonts/[name].[hash:7].[ext]')
         }
       }
     ]
