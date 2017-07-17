@@ -1,9 +1,8 @@
 {
-  "name": "grid",
+  "name": "vue-multiple-grid",
   "description": "Based-vue grid system component",
   "version": "1.0.0",
-  "author": "savoygu <saifeizhoukou@163.com>",
-  "private": true,
+  "author": "vue-multiple",
   "main": "lib/grid.js",
   "files": [
     "lib",
@@ -20,20 +19,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:savoygu/vue-grid-system.git"
+    "url": "git@github.com:vue-multiple/grid.git"
   },
   "keywords": [
     "vue",
-    "vue-grid-system",
     "grid",
     "grid system",
     "components"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/savoygu/vue-grid-system/issues"
+    "url": "https://github.com/vue-multiple/grid/issues"
   },
-  "unpkg": "lib/vue-grid-system.js",
+  "unpkg": "lib/grid.js",
   "dependencies": {
     "vue": "^2.3.3"
   },
@@ -53,6 +51,7 @@
     "less-loader": "^4.0.4",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.8",
+    "vue-highlightjs": "^1.3.3",
     "vue-loader": "^12.1.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.3.3",

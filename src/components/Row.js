@@ -55,7 +55,7 @@ export default {
         this.wrap !== 'wrap' ? `is-wrap-${this.wrap}` : '',
         this.justify !== 'start' ? `is-justify-${this.justify}` : '',
         this.align !=='top' ? `is-align-${this.align}` : '',
-        this.content !== 'start' ? `is-content-${this.content}` : '',
+        `is-content-${this.content}`,
         this.className
       ],
       style: this.style

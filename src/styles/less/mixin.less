@@ -58,7 +58,7 @@
   }
   .loop-grid-columns((@index - 1), @class);
 }
-.loop-grid-column(@index, @class) when (@index = 0) {
+.loop-grid-columns(@index, @class) when (@index = 0) {
   .@{col-prefix-cls}@{class}-@{index} {
 	display: none;
   }

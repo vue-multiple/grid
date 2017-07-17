@@ -8,7 +8,7 @@
 
 	&:before,
 	&:after {
-	  display: flex;
+	  display: none;
 	}
 	// 项目排列方向
 	&.is-direction-row-reverse {
@@ -58,11 +58,14 @@
 	}
 
 	// 多轴
+	&.is-content-start {
+	  align-content: flex-start;
+	}
 	&.is-content-center {
 	  align-content: center;
 	}
 	&.is-content-end {
-	  align-content: end;
+	  align-content: flex-end;
 	}
 	&.is-content-space-between {
 	  align-content: space-between;
@@ -82,7 +85,9 @@
 }
 .make-grid();
 
-.make-grid(-xs);
+@media (min-width: @screen-xs-min) {
+  .make-grid(-xs);
+}
 
 @media (min-width: @screen-sm-min) {
   .make-grid(-sm);

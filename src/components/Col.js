@@ -42,8 +42,7 @@ export default {
       style.paddingRight = style.paddingLeft
     }
 
-    ;
-    ['span', 'offset', 'pull', 'push', 'order'].forEach(prop => {
+    ;['span', 'offset', 'pull', 'push', 'order'].forEach(prop => {
       if (this[prop]) {
         classList.push(
           prop !== 'span'
@@ -53,18 +52,35 @@ export default {
       }
     })
 
-    ;
-    ['xs', 'sm', 'md', 'lg'].forEach(size => {
+    let addProps = []
+    ;['xs', 'sm', 'md', 'lg'].forEach(size => {
       if (typeof this[size] === 'number') {
         classList.push(`vm-col-${size}-${this[size]}`)
+
+        addProps.length && addProps.forEach(prop => {
+          classList.push(`vm-col-${size}-${prop}-0`)
+        })
       } else if (typeof this[size] === 'object') {
         let props = this[size]
-        Object.keys(props).forEach(prop => {
+        let keys = Object.keys(props)
+        keys.forEach(prop => {
+          if (
+            ['offset', 'pull', 'push', 'order'].indexOf(prop) > -1
+            && addProps.indexOf(prop) === -1
+          ) {
+            addProps.push(prop)
+          }
           classList.push(
             prop !== 'span'
               ? `vm-col-${size}-${prop}-${props[prop]}`
               : `vm-col-${size}-${props[prop]}`
           )
+        })
+        addProps = addProps.filter(prop => {
+          if (keys.indexOf(prop) === -1) {
+            classList.push(`vm-col-${size}-${prop}-0`)
+          }
+          return keys.indexOf(prop) > -1
         })
       }
     })
